@@ -166,3 +166,4 @@ void lcd_cgram(void)
         for(i=0;i<8;i++)
         lcd_data(a[i]);
 }
+

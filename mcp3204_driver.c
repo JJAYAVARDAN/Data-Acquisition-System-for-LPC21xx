@@ -38,3 +38,4 @@ u32 mcp3204_adc_read(u8 ch_num){
 
         return adcval;
 }
+

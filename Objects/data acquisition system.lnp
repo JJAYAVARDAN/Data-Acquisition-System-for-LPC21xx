@@ -1,0 +1,14 @@
+--cpu ARM7TDMI
+".\objects\startup.o"
+".\objects\uart_driver.o"
+".\objects\i2c_driver.o"
+".\objects\spi_driver.o"
+".\objects\main.o"
+".\objects\mcp3204_driver.o"
+".\objects\lcd_4bit_driver.o"
+".\objects\adc_driver.o"
+".\objects\rtc_driver.o"
+".\objects\delay.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x40000000 --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\data acquisition system.map" -o ".\Objects\data acquisition system.axf"

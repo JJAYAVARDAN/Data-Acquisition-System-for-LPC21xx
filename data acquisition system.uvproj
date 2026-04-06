@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -456,14 +457,24 @@
               <FilePath>.\lcd_4bit_driver.c</FilePath>
             </File>
             <File>
-              <FileName>project_header.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\project_header.h</FilePath>
-            </File>
-            <File>
               <FileName>adc_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\adc_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\rtc_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>project.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\project.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -16,7 +16,8 @@ ADCR=0x00200400; // channel not selected
  // 10bit ADC Resolution
  // PDN=1.
 //      PINSEL1|=0X7800;
-        `}
+        
+} 
 //adc_read() function()
 #define DONE ((ADDR>>31)&1)
 u32 adc_read(u32 ch_num)
@@ -33,5 +34,9 @@ return result; // return result.
 }
 float adc_cal_vol(u32 val)
 {
-        return ((((float)val*3.3))/1023);
+return ((((float)val*3.3))/1023);
+
 }
+
+
+

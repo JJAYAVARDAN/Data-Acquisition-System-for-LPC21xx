@@ -92,6 +92,8 @@ void get_date(Date *d)
         d->day=BCD2DEC(i2c_read(RTC_ADD,RTC_DAY));
         d->date=BCD2DEC(i2c_read(RTC_ADD,RTC_DATE));
         d->month=BCD2DEC(i2c_read(RTC_ADD,RTC_MON));
-        d->year=BCD2DEC(i2c_read(RTC_ADD,RTC_YEAR));
-
+d->year=BCD2DEC(i2c_read(RTC_ADD,RTC_YEAR));
 }
+
+
+

@@ -73,3 +73,4 @@ int a[10],i=0;
         for(i=i-1;i>=0;i--)
         uart0_tx(a[i]);
 }
+

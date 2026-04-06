@@ -20,5 +20,8 @@ void spi0_init(void){
 u8 spi0(u8 data){
         S0SPDR=data;
         while(SPIF==0);
-        return S0SPDR;
+return S0SPDR;
+
 }
+
+

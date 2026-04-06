@@ -65,8 +65,11 @@ int main(void)
             lcd_cmd(0xC0);
             sprintf(buf,"V=%.2fvL=%dT=%.2fC",vout1,ldr_val,temp);
                         lcd_string((u8 *)buf);
-                        delay_ms(1000);
-
-
-    }
+delay_ms(1000);   
+		
 }
+		
+
+}
+
+

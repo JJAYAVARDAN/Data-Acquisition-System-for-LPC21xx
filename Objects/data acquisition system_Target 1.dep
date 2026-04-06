@@ -1,0 +1,31 @@
+Dependencies for Project 'data acquisition system', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x559CFDE8)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 526"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
+F (.\uart_driver.c)(0x69D331E0)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\uart_driver.o --omf_browse .\objects\uart_driver.crf --depend .\objects\uart_driver.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\i2c_driver.c)(0x69D218D4)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\i2c_driver.o --omf_browse .\objects\i2c_driver.crf --depend .\objects\i2c_driver.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\spi_driver.c)(0x69D33165)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\spi_driver.o --omf_browse .\objects\spi_driver.crf --depend .\objects\spi_driver.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\main.c)(0x69D331B4)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599EFE64)
+F (.\mcp3204_driver.c)(0x69D33165)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\mcp3204_driver.o --omf_browse .\objects\mcp3204_driver.crf --depend .\objects\mcp3204_driver.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\lcd_4bit_driver.c)(0x69D331E0)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\lcd_4bit_driver.o --omf_browse .\objects\lcd_4bit_driver.crf --depend .\objects\lcd_4bit_driver.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\adc_driver.c)(0x69D33165)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\adc_driver.o --omf_browse .\objects\adc_driver.crf --depend .\objects\adc_driver.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\rtc_driver.c)(0x69D331A3)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\rtc_driver.o --omf_browse .\objects\rtc_driver.crf --depend .\objects\rtc_driver.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\delay.c)(0x69D331C5)(--c99 --gnu -c --cpu ARM7TDMI -D__EVAL -g -O0 --apcs=interwork --split_sections-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-ID:\Keil_v5\ARM\INC\Philips-D__UVISION_VERSION="526"-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
+I (D:\Keil_v5\ARM\INC\Philips\lpc21xx.h)(0x559CFE30)
+I (project.h)(0x69D3317E)
+F (.\project.h)(0x69D3317E)()
