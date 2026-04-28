@@ -1,76 +1,111 @@
+/*===========================================================================
+ * project.h  –  Data Acquisition System for LPC21xx
+ *               RTX RTOS Version (Keil uVision)
+ *
+ * All peripheral driver prototypes remain identical to the bare-metal
+ * version.  Only main.c changes; every driver .c file is reused as-is.
+ *===========================================================================*/
+
 #ifndef PROJECT_H
 #define PROJECT_H
 
-//data types
-typedef  unsigned char u8;
-typedef unsigned int u32;
-typedef float u32f;
-typedef int s32;
+#include <lpc21xx.h>
+#include <RTL.h>          /* Keil RTX kernel API                            */
+#include <stdio.h>
+#include <string.h>
 
-//delay
-void delay_ms(unsigned int ms);
+/*---------------------------------------------------------------------------
+ *  Primitive type aliases (same as original project)
+ *---------------------------------------------------------------------------*/
+typedef unsigned char       u8;
+typedef unsigned short int  u16;
+typedef unsigned int        u32;
+typedef int                 s32;
+typedef float               u32f;
 
-//lcd
-void lcd_init(void);
-void lcd_cmd(u8 cmd);
-void lcd_data(u8 data);
-void lcd_enable(void);
-void lcd_string(u8 *ptr);
-void lcd_integer(s32 num);
-void lcd_float(float f);
-unsigned long int lcd_strlen(char *p);
-int lcd_strcmp(const char *s1,const char *s2);
-void lcd_cir_left(char *p,u8 row);
-void lcd_cir_right(char *p,u8 row);
-void lcd_cgram(void);
+/*---------------------------------------------------------------------------
+ *  RTC data structures
+ *---------------------------------------------------------------------------*/
+typedef struct {
+    u8 hours;
+    u8 min;
+    u8 sec;
+    u8 pm;      /* 0 = AM, 1 = PM */
+} Time;
 
-//uart0
-void uart0_init(u32 baud);
-u8 uart0_rx(void);
-void uart0_bin(int num);
-void uart0_string(u8 *ptr);
-void uart0_integer(int num);
-void uart0_rx_string(char *ptr,int len);
+typedef struct {
+    u8 day;     /* 1=SUN … 7=SAT */
+    u8 date;
+    u8 month;
+    u8 year;    /* 2-digit, e.g. 25 → 2025 */
+} Date;
 
-////spi
-void spi0_init(void);
-u8 spi0(u8 data);
+/*---------------------------------------------------------------------------
+ *  Shared sensor data – written by sensor tasks, read by display tasks.
+ *  Protected by g_data_mutex.
+ *---------------------------------------------------------------------------*/
+typedef struct {
+    /* ADC / sensor readings */
+    float   voltage;        /* voltage divider channel (V)   */
+    float   temperature;    /* LM35 temperature (°C)         */
+    u32     light;          /* LDR intensity (lux, approx.)  */
+    /* RTC snapshot */
+    Time    now;
+    Date    today;
+} SensorData;
 
-//external adc mcp3204 spi
-u32 mcp3204_adc_read(u8 ch_num);
+/* Global shared data and RTX synchronisation objects                        */
+extern SensorData  g_data;          /* shared sensor snapshot               */
+extern OS_MUT      g_data_mutex;    /* guards g_data                        */
+extern OS_MUT      g_lcd_mutex;     /* guards LCD (hardware resource)       */
+extern OS_MUT      g_uart_mutex;    /* guards UART0 (hardware resource)     */
 
-//adc
-float adc_cal_vol(u32 val);
-void adc_init(void);
-u32 adc_read(u32 ch_num);
+/*---------------------------------------------------------------------------
+ *  Day-name lookup (defined in main.c)
+ *---------------------------------------------------------------------------*/
+extern const char *day_name[];
 
+/*===========================================================================
+ *  Driver prototypes  (unchanged from bare-metal version)
+ *===========================================================================*/
 
-//i2c
-void i2c_init(void);
-void i2c_write(u8 sa,u8 mr,u8 data);
-u8 i2c_read(u8 sa,u8 mr);
+/* ADC -------------------------------------------------------------------- */
+void  adc_init(void);
+u32   adc_read(u8 channel);
 
-//rtc delarations
-typedef struct
-{
-        u8 hours,min,sec,pm;
-}Time;
+/* LCD (4-bit) ------------------------------------------------------------ */
+void  lcd_init(void);
+void  lcd_cmd(u8 cmd);
+void  lcd_data(u8 dat);
+void  lcd_string(u8 *str);
+void  lcd_int(int val);
+void  lcd_float(float val, u8 decimal);
 
-typedef struct
-{
-        u8 day,date,month,year;
-}Date;
+/* UART0 ------------------------------------------------------------------ */
+void  uart0_init(u32 baud);
+void  uart0_tx(u8 ch);
+void  uart0_string(u8 *str);
+void  uart0_int(int val);
 
+/* SPI0 ------------------------------------------------------------------- */
+void  spi0_init(void);
+u8    spi0_tx(u8 data);
 
-//RTC functions
-u8 BCD2DEC(u8 bcd);
-u8 DEC2BCD(u8 dec);
-void set_time(Time *t);
-void set_date(Date *d);
-void get_time(Time *t);
-void get_date(Date *d);
+/* MCP3204 (12-bit SPI ADC) ----------------------------------------------- */
+u32   mcp3204_adc_read(u8 channel);
 
-#endif
+/* I2C0 ------------------------------------------------------------------- */
+void  i2c_init(void);
+u8    i2c_write(u8 addr, u8 *data, u8 len);
+u8    i2c_read (u8 addr, u8 *buf,  u8 len);
 
+/* DS1307 RTC ------------------------------------------------------------- */
+void  set_time(Time *t);
+void  set_date(Date *d);
+void  get_time(Time *t);
+void  get_date(Date *d);
 
+/* Delay (Timer0-based, still used inside drivers) ------------------------ */
+void  delay_ms(u32 ms);
 
+#endif /* PROJECT_H */
