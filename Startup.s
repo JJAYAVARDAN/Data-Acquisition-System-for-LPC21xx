@@ -256,12 +256,13 @@ IRQ_Addr        DCD     IRQ_Handler
 FIQ_Addr        DCD     FIQ_Handler
 
 Undef_Handler   B       Undef_Handler
-SWI_Handler     B       SWI_Handler
+;SWI_Handler     B       SWI_Handler
 PAbt_Handler    B       PAbt_Handler
 DAbt_Handler    B       DAbt_Handler
 IRQ_Handler     B       IRQ_Handler
 FIQ_Handler     B       FIQ_Handler
 
+	IMPORT SWI_Handler
 
 ; Reset Handler
 

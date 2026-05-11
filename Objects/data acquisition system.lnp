@@ -9,6 +9,9 @@
 ".\objects\adc_driver.o"
 ".\objects\rtc_driver.o"
 ".\objects\delay.o"
---ro-base 0x00000000 --entry 0x00000000 --rw-base 0x40000000 --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+".\objects\rtx_conf_lpc21xx.o"
+D:\Keil_v5\ARM\RV31\LIB\RTX_ARM_LA.LIB
+--strict --scatter ".\Objects\data acquisition system.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\data acquisition system.map" -o ".\Objects\data acquisition system.axf"

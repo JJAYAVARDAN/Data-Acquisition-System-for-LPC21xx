@@ -6,7 +6,7 @@ typedef  unsigned char u8;
 typedef unsigned int u32;
 typedef float u32f;
 typedef int s32;
-
+static void lcd_enable(void);
 
 //control pins of lcd
 #define rs (1<<17)

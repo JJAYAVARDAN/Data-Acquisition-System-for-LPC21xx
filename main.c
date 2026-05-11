@@ -174,9 +174,11 @@ __task void task_lcd(void)
                     snap.now.pm ? "PM" : "AM");
             lcd_string((u8 *)lcd_buf);
 
-            /* Line 2: sensors ---------------------------------------------- */
+            /* Line 2: sensors (use lcd_string with sprintf buffer;           *
+             *  lcd_float() takes only one arg so we avoid it for formatted   *
+             *  multi-value lines and use lcd_string throughout)               */
             lcd_cmd(0xC0);   /* DDRAM address: row 1, col 0                  */
-            sprintf(lcd_buf, "V=%.2fvL=%03dT=%.1fC",
+            sprintf(lcd_buf, "V=%.2fL=%dT=%.1fC",
                     snap.voltage,
                     (int)snap.light,
                     snap.temperature);

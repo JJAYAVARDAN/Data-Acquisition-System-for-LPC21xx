@@ -71,7 +71,7 @@ extern const char *day_name[];
 
 /* ADC -------------------------------------------------------------------- */
 void  adc_init(void);
-u32   adc_read(u8 channel);
+u32   adc_read(u32 ch_num);          /* param is u32 – matches adc_driver.c  */
 
 /* LCD (4-bit) ------------------------------------------------------------ */
 void  lcd_init(void);
@@ -79,7 +79,7 @@ void  lcd_cmd(u8 cmd);
 void  lcd_data(u8 dat);
 void  lcd_string(u8 *str);
 void  lcd_int(int val);
-void  lcd_float(float val, u8 decimal);
+void  lcd_float(float voltage);      /* single-arg – matches lcd_4bit_driver.c */
 
 /* UART0 ------------------------------------------------------------------ */
 void  uart0_init(u32 baud);
@@ -89,15 +89,15 @@ void  uart0_int(int val);
 
 /* SPI0 ------------------------------------------------------------------- */
 void  spi0_init(void);
-u8    spi0_tx(u8 data);
+u8    spi0(u8 data);                 /* named "spi0" – matches spi_driver.c   */
 
 /* MCP3204 (12-bit SPI ADC) ----------------------------------------------- */
 u32   mcp3204_adc_read(u8 channel);
 
 /* I2C0 ------------------------------------------------------------------- */
-void  i2c_init(void);
-u8    i2c_write(u8 addr, u8 *data, u8 len);
-u8    i2c_read (u8 addr, u8 *buf,  u8 len);
+void          i2c_init(void);
+void          i2c_write(u8 sa, u8 mr, u8 data); /* matches i2c_driver.c     */
+unsigned char i2c_read (u8 sa, u8 mr);           /* matches i2c_driver.c     */
 
 /* DS1307 RTC ------------------------------------------------------------- */
 void  set_time(Time *t);
