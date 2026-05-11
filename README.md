@@ -65,7 +65,7 @@ e:/project/
 ├── i2c_driver.c            # I2C driver
 ├── rtc_driver.c            # RTC driver
 ├── delay.c                 # Timer delay utilities
-├── RTX_Config.c            # RTX kernel configuration
+├── RTX_Conf_LPC21xx.c      # RTX kernel configuration
 ├── Startup.s               # ARM startup assembly
 ├── Objects/                # Build outputs
 └── README.md               # Documentation
